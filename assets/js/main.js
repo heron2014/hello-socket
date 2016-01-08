@@ -1,1 +1,36 @@
-console.log('hello');
+// (function () {
+  
+//   document.getElementById('button_action').addEventListener('click', function() {
+//     console.log('clicked')
+//      var socket = io.connect('http://localhost:8000');
+  
+//       socket.emit('hello-channel', { msg: 'hello' });
+  
+//   }, false);
+  
+// }());
+
+// var form = document.getElementsByTagName('form')[0];
+// form.addEventListener("submit", function(e) {
+
+//     e.preventDefault();
+
+//     var socket = io.connect('http://localhost:8000');
+//     console.log('client');
+//     socket.emit('hello-channel', { msg: 'hello' });
+
+// });
+
+var socket = io();
+
+
+document.getElementById('hello').addEventListener('click', function() {
+  console.log('clicked');
+  socket.emit('hello-channel', 'mesage from client');
+
+   
+});
+
+socket.on('different-channel', function(message) {
+  console.log('catch on client message from server', message);
+})
