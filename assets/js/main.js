@@ -24,13 +24,15 @@
 var socket = io();
 
 
-document.getElementById('hello').addEventListener('click', function() {
-  console.log('clicked');
-  socket.emit('hello-channel', 'mesage from client');
+// document.getElementById('hello').addEventListener('click', function() {
+//   console.log('clicked');
+//   socket.emit('hello-channel', 'mesage from client');
 
    
+// });
+
+socket.on('heroku-channel', function(message) {
+  document.getElementById('message-heroku').textContent = message;
+  console.log('catch on client message from server', message);
 });
 
-socket.on('different-channel', function(message) {
-  console.log('catch on client message from server', message);
-})
