@@ -21,7 +21,7 @@
 
 // });
 
-var socket = io();
+var socket = io('https://testing-socket.herokuapp.com/');
 
 
 // document.getElementById('hello').addEventListener('click', function() {
@@ -32,6 +32,7 @@ var socket = io();
 // });
 
 socket.on('heroku-channel', function(message) {
+
   document.getElementById('message-heroku').textContent = message;
   console.log('catch on client message from server', message);
 });
